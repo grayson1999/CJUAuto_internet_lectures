@@ -28,7 +28,7 @@ class Auto_internet_lectures:
         self.year = "2024"
         
         ##수강 스킵 코드
-        self.js_skip_code=os.getenv("SKIP_CODE")
+        self.js_skip_code='iframe = document.getElementById("sub-frame-contents");iframe.contentWindow.startTime -= 3000000;iframe.contentWindow.pre_study_time = 3000000;iframe.contentWindow.loadDurationTime = 3000000;iframe.contentWindow.CmiSetValue("cmi.session_time",3000000);iframe.contentWindow.cmi_session_time;iframe.contentWindow.CmiSetValue("cmi.saved_session_time",3000000);iframe.contentWindow.CmiSetValue("cmi.study_time",3000000);iframe.contentWindow.CmiSetValue("cmi.duration_time",3000000);iframe.contentWindow.CmiSetValue("cmi.check_time1",1500000);iframe.contentWindow.CmiSetValue("cmi.check_time2",3000000);iframe.contentWindow.cmi_progress_measure = 1;iframe.contentWindow.cmiCheckProgress(0.5);iframe.contentWindow.cmiCheckProgress(1);MAIN.doClose();'
 
         ##main page url
         self.main_page_url ="https://hive.cju.ac.kr/usr/member/stu/dash/detail.do"
@@ -194,7 +194,8 @@ class Auto_internet_lectures:
                             
                         main = self.driver.window_handles
                         self.driver.switch_to.window(main[-1])
-                        sleep(1)
+                        sleep(2.5)
+                        input()
                         self.driver.execute_script(self.js_skip_code)
                         sleep(2)
                         ##alert 확인
