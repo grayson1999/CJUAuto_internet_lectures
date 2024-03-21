@@ -8,6 +8,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
 import os 
 import slack_sdk
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
+
+
 
 
 
@@ -47,8 +51,8 @@ class Auto_internet_lectures:
         self.options.add_argument('--headless')
         self.options.add_argument('--no-sandbox')
         
-        
-        self.driver = webdriver.Chrome(options=self.options)
+        self.service = ChromeService(executable_path=ChromeDriverManager().install())
+        self.driver = webdriver.Chrome(service=self.service, options=self.options)
         self.driver.get(self.main_page_url)
 
     ##현재 날짜를 이용해 가치있는 날짜 범위있지 확인

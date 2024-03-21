@@ -53,3 +53,9 @@ python CJUAuto_internet_lectures.py
 
 **ver1.1.2**
 * Chrome으로 변경
+
+**ver1.1.3**
+* --no-sandbox 옵션 추가
+
+**ver1.1.4**
+* webdriver_manager 도입
