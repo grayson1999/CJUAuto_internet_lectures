@@ -213,7 +213,6 @@ class Auto_internet_lectures:
                         main = self.driver.window_handles
                         self.driver.switch_to.window(main[-1])
                         sleep(2.5)
-                        input()
                         self.driver.execute_script(self.js_skip_code)
                         sleep(2)
                         ##alert 확인
