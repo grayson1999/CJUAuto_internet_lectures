@@ -47,3 +47,6 @@ python CJUAuto_internet_lectures.py
 
 **ver1.1**
 * 백그라운드 실행 및 기타 서버용 셀레니움 옵션 추가
+
+**ver1.1.1**
+* service객체 추가
