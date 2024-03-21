@@ -83,18 +83,18 @@ class Auto_internet_lectures:
                 formatted_message += f"• {week}: "
                 if isinstance(info, dict) and info.get('progress_rate') is not None:
                     if info['progress_rate']:
-                        formatted_message += "Completed\n"
+                        formatted_message += "Completed "
                     else:
-                        formatted_message += "Not completed\n"
-                    formatted_message += f"  {info['start_date']} ~ {info['end_date']}\n"
+                        formatted_message += "Not completed "
+                    formatted_message += f" ({info['start_date']} ~ {info['end_date']})\n"
                     for period, status in info['periods'].items():
                         formatted_message += f"  - {period}: "
                         if status[0]:
-                            formatted_message += "Completed\n"
+                            formatted_message += "O"
                         else:
-                            formatted_message += "Not completed\n"
+                            formatted_message += "X"
                 else:
-                    formatted_message += "Information not available\n"
+                    formatted_message += "Information not available"
             formatted_message += "\n"
 
         if is_listening_courses:

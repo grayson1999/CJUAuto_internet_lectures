@@ -65,3 +65,6 @@ python CJUAuto_internet_lectures.py
 
 **ver1.1.6**
 * if info['progress_rate'] 부분 오류 수정
+
+**ver1.2**
+* slack 출력 형식 간결하게 변경
