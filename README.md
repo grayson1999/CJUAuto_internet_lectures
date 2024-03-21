@@ -52,4 +52,4 @@ python CJUAuto_internet_lectures.py
 * service객체 추가
 
 **ver1.1.2**
-* firefox로 변경
+* Chrome으로 변경
