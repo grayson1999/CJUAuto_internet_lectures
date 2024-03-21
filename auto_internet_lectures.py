@@ -86,7 +86,7 @@ class Auto_internet_lectures:
                         formatted_message += "Completed "
                     else:
                         formatted_message += "Not completed "
-                    formatted_message += f" ({info['start_date']} ~ {info['end_date']})\n"
+                    formatted_message += f" ({info['start_date'][5:]} ~ {info['end_date'][5:]})\n"
                     for period, status in info['periods'].items():
                         formatted_message += f"  - {period}: "
                         if status[0]:
