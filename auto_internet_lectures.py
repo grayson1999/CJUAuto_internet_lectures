@@ -93,8 +93,9 @@ class Auto_internet_lectures:
                             formatted_message += "O"
                         else:
                             formatted_message += "X"
+                    formatted_message += "\n"
                 else:
-                    formatted_message += "Information not available"
+                    formatted_message += "Information not available\n"
             formatted_message += "\n"
 
         if is_listening_courses:
