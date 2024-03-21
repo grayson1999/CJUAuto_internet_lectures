@@ -1,7 +1,49 @@
-<h2>기능</h2><p>CJUAuto_internet_lectures는 다음과 같은 작업을 자동화합니다:</p><ul><li>사용자가 제공한 ID/PW을 사용하여 CJU 사이버 강의 포털에 로그인합니다.</li><li>등록된 강의 목록과 강의 상태를 검색합니다.</li><li>현재 날짜와 강의 일정을 기반으로 아직 완료되지 않은 강의에 자동으로 수강합니다.</li><li>지정된 Slack 채널로 수강 내역을 요약하여 전송합니다. 이 내용에는 이번에 실행 한 강의와 전체 강의의 내용이 포함됩니다.</li></ul><h2>전제 조건</h2><p>스크립트를 실행하기 전에 다음 사항이 필요합니다:</p><ul><li>시스템에 Python 3.6 이상이 설치되어 있어야 합니다.</li><li>Chrome WebDriver가 설치되어 시스템의 PATH에 추가되어 있어야 합니다. 설치된 Chrome 버전과 일치하는지 확인하세요.</li><li><code>.env</code> 파일이 스크립트와 동일한 디렉토리에 있어야 하며 필요한 환경 변수가 포함되어 있어야 합니다(아래 자세한 내용 참조).</li><li>Python 환경에 <code>selenium</code>, <code>slack_sdk</code>, <code>python-dotenv</code>가 설치되어 있어야 합니다.</li></ul><h2>환경 설정</h2><p>다음 변수를 포함하는 <code>.env</code> 파일을 스크립트의 디렉토리에 생성하세요:</p><pre>ID=당신의_CJU_아이디
+## CJU 자동 인터넷 강의 수강 스크립트
+
+### 기능
+* 사용자 제공 ID/PW를 사용하여 CJU 사이버 강의 포털에 로그인
+* 등록된 강의 목록 및 강의 상태 검색
+* 현재 날짜와 강의 일정 기반 아직 완료되지 않은 강의 자동 수강
+* 지정된 Slack 채널로 수강 내역 요약 전송 (이번 실행 강의, 전체 강의 포함)
+
+### 전제 조건
+* 시스템에 Python 3.6 이상 설치
+* Chrome WebDriver 설치 및 PATH 추가 (Chrome 버전 일치 확인)
+* 스크립트와 동일한 디렉토리에 .env 파일 생성 및 환경 변수 설정
+* Python 환경에 selenium, slack_sdk, python-dotenv 설치
+
+### 환경 설정
+* 스크립트 디렉토리에 .env 파일 생성 및 다음 변수 설정
+```
+ID=당신의_CJU_아이디
 PW=당신의_CJU_비밀번호
 SLACK_TOKEN=당신의_Slack_봇_토큰
 SKIP_CODE=강의_내용을_건너뛰는_자바스크립트_코드
-</code></div></div></pre><ul><li><code>ID</code> 및 <code>PW</code>는 CJU 포털 로그인 ID/PW 입니다.</li><li><code>SLACK_TOKEN</code>은 Slack 앱에서 가져온 Bot User OAuth Access Token입니다. Slack 앱을 만들고 알림을 받을 채널에 그것을 초대하세요.</li><li><code>SKIP_CODE</code>는 강의 콘텐츠를 건너뛰는 데 사용되는 JavaScript 코드입니다. 이는 웹 애플리케이션의 작동 방식에 대한 특정 지식이 필요할 수 있습니다.</li></ul><h2>실행 방법</h2><ol><li>터미널이나 명령 프롬프트를 엽니다.</li><li><code>CJUAuto_internet_lectures</code> 스크립트가 있는 디렉토리로 이동합니다.</li><li>다음 명령을 실행하여 필요한 패키지를 설치합니다:</li></ol><pre><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">pip install -r requirements.txt
-</code></div></div></pre><ol start="4"><li>스크립트가 필요한 패키지를 설치한 후 다음 명령을 실행하여 스크립트를 실행합니다:</li></ol><pre><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">python CJUAuto_internet_lectures.py
-</code></div></div></pre><ol start="5"><li>스크립트는 작업을 수행하고 완료되면 지정된 Slack 채널로 보고서를 보냅니다.</li></ol><h2>중요 사항</h2><ul><li><strong>개인 정보 및 보안</strong>: 스크립트는 CJU 포털 자격 증명이 필요합니다. <code>.env</code> 파일의 보안을 유지하고 자격 증명을 공유하지 않도록 주의하세요.</li><li><strong>실행 시간</strong>: 스크립트의 실행 시간은 강의 수와 강의의 개수에 따라 달라집니다. 부하를 최소화하고 실행이 원활하도록 하기 위해 오프 피크 시간에 실행하는 것이 좋습니다.</li>
+```
+* ID 및 PW: CJU 포털 로그인 ID/PW
+* SLACK_TOKEN: Slack 앱 Bot User OAuth Access Token (Slack 앱 생성 및 알림 채널 초대 필요)
+* SKIP_CODE: 강의 콘텐츠 건너뛰기 JavaScript 코드 (웹 애플리케이션 작동 방식에 대한 특정 지식 필요)
+
+### 실행 방법
+1. 터미널 또는 명령 프롬프트 열기
+2. 스크립트 디렉토리로 이동
+3. 다음 명령 실행하여 필요 패키지 설치
+```
+pip install -r requirements.txt
+```
+4. 다음 명령 실행하여 스크립트 실행
+```
+python CJUAuto_internet_lectures.py
+```
+5. 스크립트 작업 완료 후 지정된 Slack 채널로 보고서 전송
+
+### 중요 사항
+* 개인 정보 및 보안: 스크립트에 CJU 포털 자격 증명 필요, .env 파일 보안 유지 및 자격 증명 공유 금지
+* 실행 시간: 강의 수 및 길이에 따라 달라짐, 부하 최소화 및 원활한 실행 위해 오프 피크 시간 실행 권장
+
+### 버전관리
+**ver1.0**
+* 전반적인 기능 제작
+
+**ver1.1**
+* 백그라운드 실행 및 기타 서버용 셀레니움 옵션 추가

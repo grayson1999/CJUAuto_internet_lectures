@@ -1,5 +1,6 @@
 .env
 venv_internet_lectures/
+venv_auto_lecture/
 auto_internet_lectures.ipynb
 .ipynb_checkpoints/
 temp.py

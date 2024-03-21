@@ -18,7 +18,7 @@ class Auto_internet_lectures:
         self.id = os.getenv("ID")
         self.pw = os.getenv("PW")
         self.SLACK_TOKEN = os.environ.get("SLACK_TOKEN")
-        self.SLACK_CHANNEL = "#notion"
+        self.SLACK_CHANNEL = "#university"
         
         ##저장 변수
         self.courses_dict = {} ##수강 과목 list
@@ -34,9 +34,20 @@ class Auto_internet_lectures:
         self.main_page_url ="https://hive.cju.ac.kr/usr/member/stu/dash/detail.do"
         
         ##driver loading
-        self.driver = webdriver.Chrome()
+        self.options = webdriver.ChromeOptions()  # Chrome 브라우저 설정 옵션 객체 생성
+
+        # 다양한 설정 옵션 추가
+        self.options.add_argument('--disable-extensions')  # 확장 프로그램 사용 안함
+        self.options.add_argument('--start-maximized')  # 창 최대화
+        self.options.add_argument('--incognito')  # 시크릿 모드로 실행
+        self.options.add_argument('--disable-gpu')  # GPU 가속 사용 안함 (★★★★★ 많이 사용)
+        self.options.add_argument('--disable-dev-shm-usage')  # /dev/shm 사용 안함
+        self.options.add_argument('--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"')  # User-Agent 설정
+        self.options.add_argument('--disable-notifications')  # 알림 사용 안함
+        
+        self.driver = webdriver.Chrome(options=self.options)
         self.driver.get(self.main_page_url)
-    
+
     ##현재 날짜를 이용해 가치있는 날짜 범위있지 확인
     def is_today_in_date_range(self, start_date, end_date):
         # 현재 날짜 가져오기
