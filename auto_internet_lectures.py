@@ -34,7 +34,7 @@ class Auto_internet_lectures:
         self.main_page_url ="https://hive.cju.ac.kr/usr/member/stu/dash/detail.do"
         
         ##driver loading
-        self.options = webdriver.ChromeOptions()  # Chrome 브라우저 설정 옵션 객체 생성
+        self.options = webdriver.FirefoxOptions()  # Chrome 브라우저 설정 옵션 객체 생성
 
         # 다양한 설정 옵션 추가
         self.options.add_argument('--disable-extensions')  # 확장 프로그램 사용 안함
