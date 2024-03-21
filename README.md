@@ -62,3 +62,6 @@ python CJUAuto_internet_lectures.py
 
 **ver1.1.5**
 * 쓰레기 코드 (input())이 있는 부분 삭제
+
+**ver1.1.6**
+* if info['progress_rate'] 부분 오류 수정
