@@ -50,3 +50,6 @@ python CJUAuto_internet_lectures.py
 
 **ver1.1.1**
 * service객체 추가
+
+**ver1.1.2**
+* firefox로 변경

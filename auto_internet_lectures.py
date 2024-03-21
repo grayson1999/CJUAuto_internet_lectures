@@ -8,7 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
 import os 
 import slack_sdk
-from selenium.webdriver.chrome.service import Service
 
 
 
@@ -47,8 +46,7 @@ class Auto_internet_lectures:
         self.options.add_argument('--disable-notifications')  # 알림 사용 안함
         self.options.add_argument('--headless')
         
-        self.service = Service()
-        self.driver = webdriver.Chrome(service=self.service, options=self.options)
+        self.driver = webdriver.Firefox(options=self.options)
         self.driver.get(self.main_page_url)
 
     ##현재 날짜를 이용해 가치있는 날짜 범위있지 확인
