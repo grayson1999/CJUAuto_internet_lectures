@@ -45,6 +45,7 @@ class Auto_internet_lectures:
         self.options.add_argument('--disable-dev-shm-usage')  # /dev/shm 사용 안함
         self.options.add_argument('--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"')  # User-Agent 설정
         self.options.add_argument('--disable-notifications')  # 알림 사용 안함
+        self.options.add_argument('--headless')
         
         self.service = Service()
         self.driver = webdriver.Chrome(service=self.service, options=self.options)
