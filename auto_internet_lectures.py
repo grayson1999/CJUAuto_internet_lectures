@@ -34,7 +34,7 @@ class Auto_internet_lectures:
         self.main_page_url ="https://hive.cju.ac.kr/usr/member/stu/dash/detail.do"
         
         ##driver loading
-        self.options = webdriver.FirefoxOptions()  # Chrome 브라우저 설정 옵션 객체 생성
+        self.options = webdriver.ChromeOptions()  # Chrome 브라우저 설정 옵션 객체 생성
 
         # 다양한 설정 옵션 추가
         self.options.add_argument('--disable-extensions')  # 확장 프로그램 사용 안함
@@ -46,7 +46,7 @@ class Auto_internet_lectures:
         self.options.add_argument('--disable-notifications')  # 알림 사용 안함
         self.options.add_argument('--headless')
         
-        self.driver = webdriver.Firefox(options=self.options)
+        self.driver = webdriver.Chrome(options=self.options)
         self.driver.get(self.main_page_url)
 
     ##현재 날짜를 이용해 가치있는 날짜 범위있지 확인
