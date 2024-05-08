@@ -70,4 +70,4 @@ python CJUAuto_internet_lectures.py
 * slack 출력 형식 간결하게 변경
 
 **ver1.3**
-selenium.common.exceptions.NoSuchElementException ->.tbl_col3.prof_cs 오류 발견
+* selenium.common.exceptions.NoSuchElementException ->.tbl_col3.prof_cs 오류 발견
