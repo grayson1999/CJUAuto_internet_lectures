@@ -71,3 +71,5 @@ python CJUAuto_internet_lectures.py
 
 **ver1.3**
 * selenium.common.exceptions.NoSuchElementException ->.tbl_col3.prof_cs 오류 발견
+* 비밀번호 변경 이슈로 해결
+
