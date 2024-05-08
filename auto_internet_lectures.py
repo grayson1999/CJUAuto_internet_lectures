@@ -50,6 +50,7 @@ class Auto_internet_lectures:
         self.options.add_argument('--disable-notifications')  # 알림 사용 안함
         self.options.add_argument('--headless')
         self.options.add_argument('--no-sandbox')
+        self.options.add_argument("--single-process")
         
         self.service = ChromeService(executable_path=ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=self.service, options=self.options)
@@ -130,7 +131,7 @@ class Auto_internet_lectures:
         #'인공지능캡스톤디자인1': "doClassroom({'courseActiveSeq':'86759','courseApplySeq':'5122201','ltType':'B67001','chkAuthCju':'N'});"
 
         ##과목 목록
-        courses_table = self.driver.find_element(By.CLASS_NAME,"tbl_col3.prof_cs").find_elements(By.TAG_NAME,"tbody")[1]
+        courses_table = self.driver.find_element(By.CLASS_NAME, "tbl_col3.prof_cs").find_elements(By.TAG_NAME, "tbody")[1]
         courses = courses_table.find_elements(By.CLASS_NAME,"al")
 
         for elem in courses:
@@ -234,7 +235,7 @@ class Auto_internet_lectures:
         self.login()
         sleep(2)
         self.close_popup()
-        sleep(1)
+        sleep(2)
         self.get_courses_list()
         sleep(1)
         is_listening_courses = []
